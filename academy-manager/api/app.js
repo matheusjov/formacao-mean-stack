@@ -8,6 +8,7 @@ var db = require('./config/db-config')
   , routeConfig = require('./config/route-config')
   , i18n = require('./filters/i18n-filter')
   , basicAuth = require('./filters/basic-auth-filter')
+  // , profile = require('./filters/profile-filter')
   , errorHandler = require('./filters/error-filter');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +19,8 @@ app.use(cors());
 app.use(i18n);
 
 app.use(basicAuth);
+
+// app.use(profile);
 
 routeConfig.configApiRoutes(app);
 

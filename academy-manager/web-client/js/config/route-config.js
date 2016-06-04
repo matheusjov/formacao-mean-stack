@@ -7,6 +7,7 @@
 
   function config($routeProvider) {
     registerStudentRoute($routeProvider);
+    registerUserRoute($routeProvider);
   }
 
   function registerStudentRoute($routeProvider) {
@@ -26,6 +27,25 @@
 				controller: 'StudentCtrl',
 				controllerAs: 'studentCtrl'
 			});
+  }
+
+  function registerUserRoute($routeProvider){
+    $routeProvider
+    .when('/users', {
+      templateUrl: 'view/users.html',
+      controller: 'UsersCtrl',
+      controllerAs: 'usersCtrl'
+    })
+    .when('/user/new', {
+      templateUrl: '/view/user.html',
+      controller: 'UserCtrl',
+      controllerAs: 'userCtrl'
+    })
+    .when('/user/:id/edit', {
+      templateUrl: 'view/user.html',
+      controller: 'UserCtrl',
+      controllerAs: 'userCtrl'
+    });
   }
 
 })(angular);

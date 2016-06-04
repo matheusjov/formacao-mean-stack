@@ -13,11 +13,16 @@
       ctrl.menus = [];
       ctrl.user = userService.getUser();
 
+      var menus = [];
+      menus.push({ name: 'Students', icon: 'social:people', path: '/students' });
+
+      if (ctrl.user.isAdm()) {
+        menus.push({ name: 'Users', icon: 'social:people', path: '/users' });
+      }
+
       ctrl.menus.push({
           name: 'Administration'
-        , itens: [
-            { name: 'Students', icon: 'social:people', path: '/students' }
-          ]
+        , itens: menus
         });
     };
 

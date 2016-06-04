@@ -1,0 +1,24 @@
+<div layout="row" layout-wrap>
+  <div flex="grow">
+    <h3>Users</h3>
+  </div>
+</div>
+
+<md-content layout-padding class="md-whiteframe-1dp" ng-init="usersCtrl.init()">
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="user in usersCtrl.users"
+    ng-click="usersCtrl.edit(user._id)">
+    <div class="md-list-item-text" layout="column">
+      <h4>{{ user.name }}</h4>
+      <p>{{ user.email }}</p>
+      <p>{{ user.profile }}</p>
+    </div>
+  </md-list-item>
+</md-list>
+
+<div layout="row">
+  <md-button class="md-fab md-fab-bottom-right" aria-label="New" ng-click="usersCtrl.new()">
+    <md-icon md-svg-src="content:add"></md-icon>
+  </md-button>
+</div>
+</md-content>

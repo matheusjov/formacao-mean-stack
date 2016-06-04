@@ -1,0 +1,44 @@
+<div layout="row" layout-wrap>
+  <div flex="grow">
+    <h3>{{userCtrl.user._id ? 'Edit' : 'New'}} User</h3>
+  </div>
+</div>
+
+<md-content layout-padding class="md-whiteframe-1dp" ng-init="userCtrl.init()">
+  <form layout="column" ng-submit="userCtrl.save(userCtrl.user)">
+
+      <md-input-container layout="row" >
+        <label>Nome</label>
+        <input ng-model="userCtrl.user.name" required>
+      </md-input-container>
+
+      <md-input-container layout="row" >
+        <label>E-mail</label>
+        <input ng-model="userCtrl.user.email" type="email" required>
+      </md-input-container>
+
+      <div layout="row">
+        <md-radio-group ng-model="userCtrl.user.profile">
+          <md-radio-button value="User">User</md-radio-button>
+          <md-radio-button value="Administrator" class="md-primary">Administrator</md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <div layout="row" layout-xs="column">
+        <md-input-container flex="grow">
+          <label>Password</label>
+          <input ng-model="userCtrl.user.password" type="password" required>
+        </md-input-container>
+      </div>
+
+      <div layout="row" layout-align="end" layout-align-xs="center">
+        <md-button class="md-raised md-accent" ng-show="userCtrl.user._id"
+                   ng-click="userCtrl.new()">New</md-button>
+        <md-button class="md-raised md-warn" ng-show="userCtrl.user._id"
+                   ng-click="userCtrl.remove(userCtrl.user._id)">Delete</md-button>
+        <md-button class="md-raised" hide-xs ng-click="userCtrl.cancel()">Cancel</md-button>
+        <md-button class="md-raised md-primary" type="submit">Save</md-button>
+      </div>
+
+  </form>
+</md-content>

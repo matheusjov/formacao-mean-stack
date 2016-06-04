@@ -5,7 +5,7 @@
     , api = {
         userProfile: buildResourceUri('user/profile')
       , students: buildResourceUri('students')
-      , course: buildResourceUri('course')
+      , users: buildResourceUri('users')
       };
 
   function buildResourceUri(name) {
